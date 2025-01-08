@@ -1,0 +1,30 @@
+
+[project]
+name = "gpt-embeddings"
+version = "0.1.0"
+description = "A project for GPT embeddings-based retrieval using FAISS, FastAPI, and OpenAI API."
+authors = [
+    {name = "Chris Rock",email = "chris@tilde.technology"}
+]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+requires-python = ">=3.12"
+
+[tool.poetry.dependencies]
+openai = "^1.59.5"
+faiss-cpu = "^1.9.0.post1"
+fastapi = "^0.115.6"
+uvicorn = "^0.34.0"
+tiktoken = "^0.8.0"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.1.1"
+pandas = "^2.2.3"
+numpy = "^2.2.1"
+matplotlib = "^3.10.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
