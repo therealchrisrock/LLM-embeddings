@@ -1,0 +1,36 @@
+<div>
+    <h2>Search Results for "{{ query_response.query }}"</h2>
+
+    <!-- Display the answer prominently -->
+    {% if query_response.answer %}
+    <div style="margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9;">
+        <h3>Answer</h3>
+        <p>{{ query_response.answer }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Display matched chunks -->
+    <h3>Matched Chunks</h3>
+    {% if query_response.matched_chunks %}
+    <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Score</th>
+            <th>Text</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for chunk in query_response.matched_chunks %}
+        <tr>
+            <td>{{ chunk.rank }}</td>
+            <td>{{ "%.2f" | format(chunk.score) }}</td>
+            <td>{{ chunk.text }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No matched chunks found.</p>
+    {% endif %}
+</div>

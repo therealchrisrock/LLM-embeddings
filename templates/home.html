@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Doc Search</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <hgroup>
+        <h1>Ask a question</h1>
+        <h2>"Debt: The First 5000 Years"</h2>
+    </hgroup>
+    <form method="get" action="/search" >
+        <label for="query">Enter your query:</label>
+        <input style="max-width: 500px; width: 100%" type="text" id="query" name="q" required>
+        <button type="submit">Search</button>
+    </form>
+    <div id="answer"></div>
+</body>
+</html>
