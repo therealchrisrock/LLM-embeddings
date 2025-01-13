@@ -1,30 +1,32 @@
-
 [project]
-name = "gpt-embeddings"
+name = "llm-embeddings"
 version = "0.1.0"
 description = "A project for GPT embeddings-based retrieval using FAISS, FastAPI, and OpenAI API."
-authors = [
-    {name = "Chris Rock",email = "chris@tilde.technology"}
-]
+authors = [{name = "Chris Rock", email = "chris@tilde.technology"}]
 license = "GPL-3.0-or-later"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python =  ">=3.12,<4.0"
 
-[tool.poetry.dependencies]
-openai = "^1.59.5"
-faiss-cpu = "^1.9.0.post1"
-fastapi = "^0.115.6"
-uvicorn = "^0.34.0"
-tiktoken = "^0.8.0"
-python-dotenv = "^1.0.1"
+dependencies = [
+    "openai (>=1.59.5,<2.0.0)",
+    "faiss-cpu>=1.9.0.post1,<2.0",
+    "fastapi>=0.115.6,<1.0",
+    "uvicorn>=0.34.0,<1.0",
+    "tiktoken>=0.8.0,<1.0",
+    "python-dotenv>=1.0.1,<2.0",
+    "poetry (>=2.0.0,<3.0.0)",
+    "jinja2 (>=3.1.5,<4.0.0)",
+    "python-multipart (>=0.0.20,<0.0.21)",
+]
 
-[tool.poetry.group.dev.dependencies]
-jupyter = "^1.1.1"
-pandas = "^2.2.3"
-numpy = "^2.2.1"
-matplotlib = "^3.10.0"
-
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.1.1,<2.0",
+    "pandas>=2.2.3,<3.0",
+    "numpy>=2.2.1,<3.0",
+    "matplotlib>=3.10.0,<4.0",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
